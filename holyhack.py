@@ -5,7 +5,7 @@ from time import sleep
 from random import randrange
 import pandas as pd
 
-url='https://www.indeed.com/cmp/'+(input(x)+'/reviews'
+url="https://www.google.com/search?q=halff%20indeed"
 driver = webdriver.Safari()
 driver.get(url)
     #rnd=randrange(1,2)
@@ -16,6 +16,7 @@ driver.close()
 soup = BeautifulSoup(page, "html.parser")
 soup.prettify()
 
+
 links = []
 for elem in soup.find_all("a"):
     links.append(elem.get("href"))
@@ -25,6 +26,3 @@ for elem in links:
     if "https" in str(elem):
         elem.split(':h')
         list_of_links.append('h'+elem[1])
-
-if 'https://www.indeed.com/cmp//reviews' in links:
-    print('yes')
