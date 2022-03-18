@@ -4,13 +4,15 @@ import json
 from time import sleep
 from random import randrange
 import pandas as pd
+from selenium import webdriver
+from webdriver_manager.firefox import GeckoDriverManager
 
 def googlesearch(inputString):
     splittedInput = inputString.split( )
     url="https://www.google.com/search?q="
     for word in splittedInput:
         url = url + word + "%20"
-    driver = webdriver.Firefox()
+    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     driver.get(url)
         #rnd=randrange(1,2)
         #sleep(rnd)
