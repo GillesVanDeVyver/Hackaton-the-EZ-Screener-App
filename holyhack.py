@@ -5,24 +5,32 @@ from time import sleep
 from random import randrange
 import pandas as pd
 
-url="https://www.google.com/search?q=halff%20indeed"
-driver = webdriver.Safari()
-driver.get(url)
-    #rnd=randrange(1,2)
-    #sleep(rnd)
-page=driver.page_source
-driver.close()
+def googlesearch(inputString):
+    splittedInput = inputString.split( )
+    url="https://www.google.com/search?q="
+    for word in splittedInput:
+        url = url + word + "%20"
+    driver = webdriver.Firefox()
+    driver.get(url)
+        #rnd=randrange(1,2)
+        #sleep(rnd)
+    page=driver.page_source
+    driver.close()
 
-soup = BeautifulSoup(page, "html.parser")
-soup.prettify()
+    soup = BeautifulSoup(page, "html.parser")
+    soup.prettify()
 
 
-links = []
-for elem in soup.find_all("a"):
-    links.append(elem.get("href"))
-list_of_links=[]
+    links = []
+    for elem in soup.find_all("a"):
+        links.append(elem.get("href"))
+    list_of_links=[]
 
-for elem in links:
-    if "https" in str(elem):
-        elem.split(':h')
-        list_of_links.append('h'+elem[1])
+    for elem in links:
+        if "https" in str(elem):
+            elem.split(':h')
+            list_of_links.append('h'+elem[1])
+
+    return list_of_links
+
+googlesearch("halff indeed")
