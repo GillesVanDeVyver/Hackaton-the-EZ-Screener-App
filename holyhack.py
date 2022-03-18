@@ -36,4 +36,20 @@ def googlesearch(inputString):
     print(len(result))
     return result
 
+def scrapsite(url):
+    driver = webdriver.Safari()
+    driver.get(url)
+    # rnd=randrange(1,2)
+    # sleep(rnd)
+    page = driver.page_source
+    driver.close()
+
+    soup = BeautifulSoup(page, "html.parser")
+    soup.prettify()
+
+    for elem in soup.find_all("span", attrs={'class': 'css-82l4gy eu4oa1w0'}):
+        with open('reviews.txt', 'a+') as fp:
+            fp.write(str(elem))
+
+
 googlesearch("halff indeed")
