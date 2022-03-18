@@ -1,13 +1,13 @@
 <template>
-  <v-container center>
+  <v-container fluid>
     <v-text-field
-        label="Regular"
-        placeholder="Placeholder"
+        label="company name"
+        placeholder="KBC"
         v-model="company"
         required
         @keydown.enter="searchCompany"
     ></v-text-field>
-    <v-btn @click="searchCompany">Search<v-btn>
+    <v-btn @click="searchCompany">Search</v-btn>
   </v-container>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     searchCompany() {
-      this.$router.push(`/company/${this.company.urlencoded}`) //TODO is url encode needed
+      this.$router.push(`/company/${this.company}`) //TODO is url encode needed
     }
   }
 }
