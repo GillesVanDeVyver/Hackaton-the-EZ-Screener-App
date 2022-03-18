@@ -12,6 +12,7 @@ def googlesearch(inputString):
     url="https://www.google.com/search?q="
     for word in splittedInput:
         url = url + word + "%20"
+
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     driver.get(url)
         #rnd=randrange(1,2)
@@ -26,13 +27,13 @@ def googlesearch(inputString):
     links = []
     for elem in soup.find_all("a"):
         links.append(elem.get("href"))
-    list_of_links=[]
+    result = []
+    for link in links:
+        if link is not None and "review" in link:
+            result.append(link)
 
-    for elem in links:
-        if "https" in str(elem):
-            elem.split(':h')
-            list_of_links.append('h'+elem[1])
-
-    return list_of_links
+    print(result)
+    print(len(result))
+    return result
 
 googlesearch("halff indeed")
