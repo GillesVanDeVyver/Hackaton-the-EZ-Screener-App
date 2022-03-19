@@ -23,18 +23,20 @@ def get_doc_score(doc_path):
     return round(documentScore)
 
 
-def getScore(review_array):
+def getScore(review_array,word=None):
     totaldocumentScore = 0
     scores = []
     for line in review_array:
-        line_score = happy_tc.classify_text(line)
-        if line_score.label == 'POSITIVE':
-            line_score_val=line_score.score
-        else:
-            line_score_val = -line_score.score
-        totaldocumentScore+=line_score_val
-        #scores.append(((line_score_val+1)*5))
-        scores.append(line_score_val)
+        if word != None:
+            if word is None or word in line:
+                line_score = happy_tc.classify_text(line)
+                if line_score.label == 'POSITIVE':
+                    line_score_val=line_score.score
+                else:
+                    line_score_val = -line_score.score
+                totaldocumentScore+=line_score_val
+                #scores.append(((line_score_val+1)*5))
+                scores.append(line_score_val)
     #print(scores)
     #normalization of list
     pos_scores = []
