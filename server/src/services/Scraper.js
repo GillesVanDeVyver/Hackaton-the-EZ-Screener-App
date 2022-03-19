@@ -3,19 +3,23 @@ const {spawn} = require('child_process');
 module.exports = {
   async getCompanyInfo(companyName) {
     return new Promise((resolve, reject) => {
-      if(false) {
-        const python = spawn('python', ['scriptname.py', `"${companyName}"`]);
+      if(true) {
+        const python = spawn('python', ['../functions.py', `${companyName}`]);
         let response = ''
         // collect data from script
         python.stdout.on('data', function (data) {
           console.log(`Python Data: ${data}`)
           response += data
         });
+        python.stderr.on('data', function(data)  {
+          console.log(`Python error: ${data}`)
+        })
         // in close event we are sure that stream from child process is closed
         python.on('close', (code) => {
           console.log(`Python closed with exit code ${code}`)
           // send data to browser
-          resolve(response)
+
+          resolve(response.match(/JSON-DATA\\n(.*?)\\n/g))
         });
       } else {
         resolve({
