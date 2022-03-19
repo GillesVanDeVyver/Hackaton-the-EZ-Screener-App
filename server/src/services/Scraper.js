@@ -11,6 +11,9 @@ module.exports = {
           console.log(`Python Data: ${data}`)
           response += data
         });
+        python.stderr.on('data', function(data)  {
+          console.log(`Python error: ${data}`)
+        })
         // in close event we are sure that stream from child process is closed
         python.on('close', (code) => {
           console.log(`Python closed with exit code ${code}`)
