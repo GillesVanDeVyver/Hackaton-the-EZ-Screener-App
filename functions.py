@@ -18,6 +18,10 @@ import sys
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options
 
+from googletrans import Translator, constants
+from pprint import pprint
+from langdetect import detect
+
 
 def getReviews(companyName):
     # url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
@@ -122,12 +126,21 @@ def preprocess(review_list):
             review_list.remove(review)
     return  review_list
 
+def translate(review_list):
+
+
+    translator = Translator()
+    result = []
+    # translate a spanish text to english text (by default)
+    for review in review_list:
+        translation = translator.translate(review, dest='en',src=str(detect(review)))
+        result.append(translation.text)
+    return result
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
-    print(review_list)
     review_list = preprocess(review_list)
-    print("after")
+    review_list = translate(review_list)
     print(review_list)
 
     word = None
