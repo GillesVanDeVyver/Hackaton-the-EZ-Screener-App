@@ -30,7 +30,7 @@ def getReviews(companyName):
         firefox_options.add_argument("--headless")
     firefox_options.add_argument("--disable-logging")
     firefox_options.add_argument("--log-level=3")
-
+    print("start loading indeed search")
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
     driver.get(url)
@@ -41,6 +41,7 @@ def getReviews(companyName):
     elem = driver.find_element(By.XPATH,
                                '/html/body/div[2]/main/div/div[2]/section/div[1]/div[1]/div[1]/div[2]/div[1]/a')
     part_link = elem.get_attribute('href')
+    print('loading review page')
     driver.get('{}/reviews?fcountry=ALL'.format(part_link))
     page = driver.page_source
 
@@ -66,6 +67,8 @@ def getReviews(companyName):
 
     soup = BeautifulSoup(page, "html.parser")
     soup.prettify()
+
+    print('start parsing reviews')
 
     reviews = ""
     import re
