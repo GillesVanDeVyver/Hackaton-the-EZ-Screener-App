@@ -15,7 +15,7 @@ module.exports = (app) => {
 
   app.get('*', (req, res) => {
     res.sendFile(
-      path.join(__dirname, '..', '..', 'client2', 'dist', 'index.html')
+      path.join(__dirname, '..', '..','..', 'client2', 'dist', 'index.html')
     )
   })
 }
