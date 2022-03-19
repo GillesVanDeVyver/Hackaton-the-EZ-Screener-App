@@ -61,6 +61,7 @@ def getScore(review_array,word=None):
         st_dev_pos = 0.25
 
     new_scores = []
+    new_scores_raw = []
     for score in scores:
         sign = numpy.sign(score)
         if score>0:
@@ -72,14 +73,16 @@ def getScore(review_array,word=None):
             new_score = 10
         elif new_score < -10:
             new_score = -10
+        new_score_raw = ((new_score+10)/2)
         new_score = round((new_score+10)/2)
-        new_scores.append(new_score)
 
+        new_scores.append(new_score)
+        new_scores_raw.append(new_score_raw)
 
 
 
     avgdocumentScore = sum(new_scores)/len(new_scores)
-    return round(avgdocumentScore),new_scores
+    return round(avgdocumentScore),new_scores,new_scores_raw
 
 
 if __name__ == "__main__":

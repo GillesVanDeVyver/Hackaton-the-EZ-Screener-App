@@ -106,21 +106,41 @@ def get_histogram(list):
 def get_top_reviews(review_list,scores_list):
     result_pos = []
     result_neg=[]
+    scores_sorted = scores_list.copy()
+    scores_sorted.sort()
+    for i in range(1,4):
+        index = scores_list.index(scores_sorted[-i])
+        result_pos.append(review_list[index])
+    for i in range(3):
+        index = scores_list.index(scores_sorted[i])
+        result_neg.append(review_list[index])
+    return result_pos,result_neg
 
-    max_score = max(scores_list)
-    
+def preprocess(review_list):
+    for review in review_list:
+        if review == "Nothing":
+            review_list.remove(review)
+    return  review_list
 
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
+    print(review_list)
+    review_list = preprocess(review_list)
+    print("after")
+    print(review_list)
+
     word = None
     if len(sys.argv)>2:
         word = sys.argv[2]
-    score,scores_list = getScore(review_list,word)
-    score,scores_list = getScore(review_list)
+    score,scores_list,new_scores_raw = getScore(review_list,word)
     hist_data = get_histogram(scores_list)
     print("JSON-DATA")
-    output = {'score_list': hist_data, 'score': score}
+    print(hist_data)
+    result_pos,result_neg = get_top_reviews(review_list,new_scores_raw)
+    print(result_pos)
+    print(result_neg)
+    output = {'score_list': hist_data, 'score': score, 'result_pos' : result_pos, 'result_neg' : result_neg}
 
     print(json.dumps(output))
     # print("{ score: {}}".format(score))
