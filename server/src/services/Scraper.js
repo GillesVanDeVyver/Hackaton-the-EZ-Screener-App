@@ -4,7 +4,7 @@ module.exports = {
   async getCompanyInfo(companyName) {
     return new Promise((resolve, reject) => {
       if(false) {
-        const python = spawn('python', ['scriptname.py', `"${companyName}"`]);
+        const python = spawn('python', ['../../functions.py', `"${companyName}"`]);
         let response = ''
         // collect data from script
         python.stdout.on('data', function (data) {
