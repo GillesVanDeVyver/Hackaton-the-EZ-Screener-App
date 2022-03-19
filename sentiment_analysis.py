@@ -27,12 +27,22 @@ def get_doc_score(doc_path):
     return round(documentScore)
 
 
+def getScore(review_array):
+    documentScore = 0
+    for line in review_array:
+        line_score = happy_tc.classify_text(line)
+        if line_score.label == 'POSITIVE':
+            documentScore+=line_score.score
+        else:
+            documentScore-=line_score.score
+    documentScore = (documentScore/len(lines)+1)*5
+    return round(documentScore)
 
 
 if __name__ == "__main__":
-   result = main(sys.argv)
+   #result = main(sys.argv)
    #print(result)
-   sys.stdout.write(str(result))
+   # sys.stdout.write(str(result))
 
 
 
