@@ -22,7 +22,7 @@ def getReviews(companyName):
     #driver = webdriver.Safari()
 
     firefox_options = Options()
-    firefox_options.add_argument("--headless")
+    #firefox_options.add_argument("--headless")
 
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(),options=firefox_options)
@@ -90,7 +90,11 @@ def get_histogram(list):
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
-    score,scores_list = getScore(review_list)
+    word = None
+    if len(sys.argv)>2:
+        word = sys.argv[2]
+    print(word)
+    score,scores_list = getScore(review_list,word)
     hist_data = get_histogram(scores_list)
     print(hist_data)
     #print("{ score: {}}".format(score))
