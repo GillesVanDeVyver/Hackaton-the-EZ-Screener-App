@@ -62,18 +62,23 @@ def getReviews(companyName):
     soup = BeautifulSoup(page, "html.parser")
     soup.prettify()
 
+    reviews = ""
     import re
     for elem in soup.find_all("span", attrs={'class': 'css-82l4gy eu4oa1w0'}):
         with open('review.txt', 'a+') as fp:
-            fp.write(str(elem))
-    res = None
-    with open('review.txt', 'a+') as fp:
-        line=fp.read()
-        res = re.findall('<.*/>(.*?)</.*?>', line)
-
-    with open('review.txt', 'a+') as fp:
-        line = fp.read()
-        res = re.findall('<.*?>([^(?!<br.*?/>)].*?)</.*?>', line)
+            # fp.write(str(elem))
+            reviews += str(elem)
+    # res = None
+    # with open('review.txt', 'a+') as fp:
+    #     line=fp.read()
+    #     res = re.findall('<.*/>(.*?)</.*?>', line)
+    #
+    # with open('review.txt', 'a+') as fp:
+    #     line = fp.read()
+    #     res = re.findall('<.*?>([^(?!<br.*?/>)].*?)</.*?>', line)
+    print(reviews)
+    res = re.findall('<.*?>([^(?!<br.*?/>)].*?)</.*?>', reviews)
+    print(res)
     driver.close()
 
     return res
@@ -93,7 +98,7 @@ def get_histogram(list):
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
-
+    print(review_list)
     score, scores_list = getScore(review_list)
     hist_data = get_histogram(scores_list)
     print(hist_data)
