@@ -8,6 +8,7 @@ from random import randrange
 import pandas as pd
 import urllib
 import os
+import json
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.extension_connection import LOGGER
@@ -105,9 +106,13 @@ if __name__ == "__main__":
     word = None
     if len(sys.argv)>2:
         word = sys.argv[2]
-    print(word)
+
     score,scores_list = getScore(review_list,word)
     score,scores_list = getScore(review_list)
     hist_data = get_histogram(scores_list)
+    print("JSON-DATA")
     print(hist_data)
+    output = {'score_list': hist_data, 'score': score}
+
+    print(json.dumps(output))
     # print("{ score: {}}".format(score))
