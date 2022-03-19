@@ -1,11 +1,9 @@
 
 import sys
-
-
-
 from happytransformer import HappyTextClassification
-
 happy_tc = HappyTextClassification(model_type="DISTILBERT", model_name="distilbert-base-uncased-finetuned-sst-2-english", num_labels=2)
+import statistics
+import numpy
 
 def main(argv):
     return get_doc_score(argv[1])
@@ -26,15 +24,52 @@ def get_doc_score(doc_path):
 
 
 def getScore(review_array):
-    documentScore = 0
+    totaldocumentScore = 0
+    scores = []
     for line in review_array:
         line_score = happy_tc.classify_text(line)
         if line_score.label == 'POSITIVE':
-            documentScore+=line_score.score
+            line_score_val=line_score.score
         else:
-            documentScore-=line_score.score
-    documentScore = (documentScore/len(review_array)+1)*5
-    return round(documentScore)
+            line_score_val = -line_score.score
+        totaldocumentScore+=line_score_val
+        #scores.append(((line_score_val+1)*5))
+        scores.append(line_score_val)
+    print(scores)
+    #normalization of list
+    pos_scores = []
+    neg_scores = []
+    for score in scores:
+        if score>0:
+            pos_scores.append(score)
+        else:
+            neg_scores.append(score)
+
+
+    st_dev_pos = statistics.pstdev(pos_scores)
+    st_dev_neg = statistics.pstdev(neg_scores)
+    avg_pos = sum(pos_scores)/len(pos_scores)
+    avg_neg = sum(neg_scores)/len(neg_scores)
+
+    new_scores = []
+    for score in scores:
+        sign = numpy.sign(score)
+        if score>0:
+            new_score = sign*(score-avg_pos)/st_dev_pos
+        else:
+            new_score = sign*(score-avg_neg)/st_dev_neg
+        new_score = round((new_score+1)*5)
+        if new_score > 10:
+            new_score = 10
+        elif new_score < -10:
+            new_score = -10
+        new_scores.append(new_score)
+
+
+
+
+    avgdocumentScore = (totaldocumentScore/len(review_array)+1)*5
+    return round(avgdocumentScore),new_scores
 
 
 if __name__ == "__main__":
@@ -42,6 +77,8 @@ if __name__ == "__main__":
    #result = main(sys.argv)
    #print(result)
    # sys.stdout.write(str(result))
+
+
 
 
 

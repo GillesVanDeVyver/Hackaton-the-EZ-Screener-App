@@ -31,7 +31,7 @@ for elem in links:
     if "https" in str(elem):
         elem.split(':h')
         list_of_links.append('h'+elem[1])
-print(list_of_links)
+#print(list_of_links)
 #for elem in list_of_links:
  #   if './reviews' in elem:
   #      print('yes')
