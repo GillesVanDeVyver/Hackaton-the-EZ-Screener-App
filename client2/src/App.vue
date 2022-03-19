@@ -2,9 +2,9 @@
   <v-app>
     <v-app-bar
         color="blue accent-3"
-        dense
         dark
         hide-on-scroll
+        app
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
