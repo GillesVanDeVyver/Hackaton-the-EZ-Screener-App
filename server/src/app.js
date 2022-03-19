@@ -14,12 +14,12 @@ const path = require('path')
 const app = express()
 
 
-app.use(express.static(path.join(__dirname,'..','..','client2','dist')))
-app.get('*', (req, res) => {
-  res.sendFile(
-    path.join(__dirname, '..', '..', 'client2', 'dist', 'index.html')
-  )
-})
+// app.use(express.static(path.join(__dirname,'..','..','client2','dist')))
+// app.get('*', (req, res) => {
+//   res.sendFile(
+//     path.join(__dirname, '..', '..', 'client2', 'dist', 'index.html')
+//   )
+// })
 
 // log all the connection information
 app.use(morgan('combined'))
