@@ -17,8 +17,6 @@ import sys
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options
 
-LOGGER.setLevel(0)
-
 
 def getReviews(companyName):
     # url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
@@ -27,6 +25,7 @@ def getReviews(companyName):
     firefox_options = Options()
     pc_env = os.getenv('NODE_PC')
     if pc_env == 'stylify':
+        print("running headless")
         firefox_options.add_argument("--headless")
     firefox_options.add_argument("--disable-logging")
     firefox_options.add_argument("--log-level=3")
