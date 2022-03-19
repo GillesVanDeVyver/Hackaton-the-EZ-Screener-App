@@ -27,12 +27,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // to extract cookies from request
 app.use(CookieParser())
 // for security
-app.use(helmet())
+// app.use(helmet())
 
 
 // allows connection from any origin + cookies
-app.use(cors({ credentials: true, origin: config.frontend.url }))
+app.use(cors({ credentials: false, origin: config.frontend.url }))
 // app.use(cors())
+
+
 
 routes(app)
 
