@@ -14,7 +14,7 @@ const path = require('path')
 const app = express()
 
 
-app.use(express.static(path.join(__dirname,'..','..','client3','distout')))
+app.use(express.static(path.join(__dirname,'..','..','client2','dist')))
 
 // log all the connection information
 app.use(morgan('combined'))
