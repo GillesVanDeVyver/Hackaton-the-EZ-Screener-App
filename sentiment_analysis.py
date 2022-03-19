@@ -26,18 +26,18 @@ def get_doc_score(doc_path):
 def getScore(review_array,word=None):
     totaldocumentScore = 0
     scores = []
+    print(review_array)
     for line in review_array:
-        if word != None:
-            if word is None or word in line:
-                line_score = happy_tc.classify_text(line)
-                if line_score.label == 'POSITIVE':
-                    line_score_val=line_score.score
-                else:
-                    line_score_val = -line_score.score
-                totaldocumentScore+=line_score_val
-                #scores.append(((line_score_val+1)*5))
-                scores.append(line_score_val)
-    #print(scores)
+        if word is None or word in line:
+            line_score = happy_tc.classify_text(line)
+            if line_score.label == 'POSITIVE':
+                line_score_val=line_score.score
+            else:
+                line_score_val = -line_score.score
+            totaldocumentScore+=line_score_val
+            #scores.append(((line_score_val+1)*5))
+            scores.append(line_score_val)
+    print(scores)
     #normalization of list
     pos_scores = []
     neg_scores = []
@@ -47,11 +47,18 @@ def getScore(review_array,word=None):
         else:
             neg_scores.append(score)
 
-
-    st_dev_pos = statistics.pstdev(pos_scores)
-    st_dev_neg = statistics.pstdev(neg_scores)
-    avg_pos = sum(pos_scores)/len(pos_scores)
-    avg_neg = sum(neg_scores)/len(neg_scores)
+    if len(pos_scores) >0:
+        avg_pos = sum(pos_scores)/len(pos_scores)
+        st_dev_pos = statistics.pstdev(pos_scores)
+    else:
+        avg_pos = 0.5
+        st_dev_pos = 0.25
+    if len(pos_scores) >0:
+        avg_neg = sum(neg_scores)/len(neg_scores)
+        st_dev_neg = statistics.pstdev(neg_scores)
+    else:
+        avg_pos = -0.5
+        st_dev_pos = 0.25
 
     new_scores = []
     for score in scores:

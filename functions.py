@@ -98,6 +98,11 @@ def get_histogram(list):
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
+    word = None
+    if len(sys.argv)>2:
+        word = sys.argv[2]
+    print(word)
+    score,scores_list = getScore(review_list,word)
     score,scores_list = getScore(review_list)
     hist_data = get_histogram(scores_list)
     print(hist_data)
