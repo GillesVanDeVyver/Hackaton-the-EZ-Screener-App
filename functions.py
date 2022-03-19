@@ -28,8 +28,8 @@ def getReviews(companyName):
     pc_env = os.getenv('NODE_PC')
     if pc_env == 'stylify':
         firefox_options.add_argument("--headless")
-        firefox_options.add_argument("--disable-logging")
-        firefox_options.add_argument("--log-level=3")
+    firefox_options.add_argument("--disable-logging")
+    firefox_options.add_argument("--log-level=3")
 
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
