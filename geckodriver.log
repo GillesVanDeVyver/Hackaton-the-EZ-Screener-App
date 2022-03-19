@@ -316,3 +316,52 @@ DevTools listening on ws://localhost:55201/devtools/browser/bc37db31-efee-4007-b
 
 ###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
 
+1647693989635	geckodriver	INFO	Listening on 127.0.0.1:59644
+1647693992710	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59645" "-no-remote" "-profile" "C:\\Users\\DIRKVA~1\\AppData\\Local\\Temp\\rust_mozprofilenQ4zH4"
+1647694017739	geckodriver	INFO	Listening on 127.0.0.1:59749
+1647694020803	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59750" "-no-remote" "-profile" "C:\\Users\\DIRKVA~1\\AppData\\Local\\Temp\\rust_mozprofile7xWB2S"
+1647694021313	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Dirk Vanbeveren\\AppData\\Local\\Temp\\rust_mozprofile7xWB2S\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59750/devtools/browser/d7928144-4554-407f-907c-78c227372d51
+1647694023557	Marionette	INFO	Listening on port 59759
+1647694023981	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647694025238	Marionette	INFO	Stopped listening on port 59759
+[Parent 44788, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1647694029480	geckodriver	INFO	Listening on 127.0.0.1:59799
+1647694032552	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59800" "-no-remote" "-profile" "C:\\Users\\DIRKVA~1\\AppData\\Local\\Temp\\rust_mozprofileiLoZzz"
+1647694033006	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Dirk Vanbeveren\\AppData\\Local\\Temp\\rust_mozprofileiLoZzz\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59800/devtools/browser/aa0b27c8-f899-484a-a4ca-f88952b54dd9
+1647694035098	Marionette	INFO	Listening on port 59806
+1647694035224	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647694037727	Marionette	INFO	Stopped listening on port 59806
+[Parent 20908, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1647694073621	geckodriver	INFO	Listening on 127.0.0.1:59899
+1647694076693	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59900" "-no-remote" "-profile" "C:\\Users\\DIRKVA~1\\AppData\\Local\\Temp\\rust_mozprofile5qtpwx"
+1647694077162	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Dirk Vanbeveren\\AppData\\Local\\Temp\\rust_mozprofile5qtpwx\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59900/devtools/browser/b8c38931-7f94-4a94-a6c7-28316af1296f
+1647694079331	Marionette	INFO	Listening on port 59906
+1647694079357	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647694080469	Marionette	INFO	Stopped listening on port 59906
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1647694084625	geckodriver	INFO	Listening on 127.0.0.1:59946
+1647694087702	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59947" "-no-remote" "-profile" "C:\\Users\\DIRKVA~1\\AppData\\Local\\Temp\\rust_mozprofileg41YYc"
+1647694088154	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Dirk Vanbeveren\\AppData\\Local\\Temp\\rust_mozprofileg41YYc\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59947/devtools/browser/e0a53ddf-9a6f-40f1-b3ae-12160a2dac33
+1647694090277	Marionette	INFO	Listening on port 59953
+1647694090371	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647694092490	Marionette	INFO	Stopped listening on port 59953
+[Parent 12376, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+

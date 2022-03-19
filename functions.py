@@ -10,13 +10,18 @@ import sys
 from webdriver_manager.firefox import GeckoDriverManager
 
 def getReviews(companyName):
-    url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
+    #url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
     #driver = webdriver.Safari()
+
+    url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     driver.get(url)
         #rnd=randrange(1,2)
         #sleep(rnd)
+    driver.FindElement(By.XPath('//*[@id="main"]/div/div[2]/section/div[1]/div[1]/div/div[2]/div/a/div')).Click()
+
     page=driver.page_source
+    driver.
     driver.close()
 
     soup = BeautifulSoup(page, "html.parser")
