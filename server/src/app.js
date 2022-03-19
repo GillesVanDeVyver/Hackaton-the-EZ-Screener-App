@@ -14,7 +14,12 @@ const path = require('path')
 const app = express()
 
 
-
+app.use(express.static(path.join(__dirname,'..','..','client2','dist')))
+app.get('*', (req, res) => {
+  res.sendFile(
+    path.join(__dirname, '..', '..', 'client2', 'dist', 'index.html')
+  )
+})
 
 // log all the connection information
 app.use(morgan('combined'))
@@ -28,12 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(CookieParser())
 // for security
 // app.use(helmet())
-app.use(express.static(path.join(__dirname,'..','..','client2','dist')))
-app.get('*', (req, res) => {
-  res.sendFile(
-    path.join(__dirname, '..', '..', 'client2', 'dist', 'index.html')
-  )
-})
+
 
 // allows connection from any origin + cookies
 app.use(cors({ credentials: false, origin: config.frontend.url }))
