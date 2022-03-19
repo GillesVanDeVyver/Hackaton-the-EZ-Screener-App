@@ -591,3 +591,84 @@ JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691:
 
 ###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
 
+1647697063918	geckodriver	INFO	Listening on 127.0.0.1:49959
+1647697063920	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "43229" "-no-remote" "-profile" "/tmp/rust_mozprofileUngJzn"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1647697064453	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileUngJzn/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43229/devtools/browser/c38be33e-8f7f-4c85-9061-6ffb23c295c0
+1647697065276	Marionette	INFO	Listening on port 45471
+1647697065339	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647697066346	Marionette	INFO	Stopped listening on port 45471
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1647697067764	geckodriver	INFO	Listening on 127.0.0.1:51813
+1647697067767	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "33577" "-no-remote" "-profile" "/tmp/rust_mozprofileeF4G3i"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1647697068298	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileeF4G3i/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33577/devtools/browser/40dee979-96b0-4a83-9e39-44c90e372f3d
+1647697069193	Marionette	INFO	Listening on port 33737
+1647697069278	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647697071674	Marionette	INFO	Stopped listening on port 33737
+1647697103554	geckodriver	INFO	Listening on 127.0.0.1:48495
+1647697103557	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "37679" "-no-remote" "-profile" "/tmp/rust_mozprofilewgnF02"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1647697104116	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewgnF02/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:37679/devtools/browser/38553e50-c238-4fb9-a7b6-68b9ccacaaca
+1647697105083	Marionette	INFO	Listening on port 36825
+1647697105169	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647697106205	Marionette	INFO	Stopped listening on port 36825
+1647697107410	geckodriver	INFO	Listening on 127.0.0.1:53105
+1647697107412	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "35723" "-no-remote" "-profile" "/tmp/rust_mozprofileF6v8PZ"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1647697108028	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileF6v8PZ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:35723/devtools/browser/ec57b450-f6df-4734-923d-6886e3cd7803
+1647697108847	Marionette	INFO	Listening on port 45207
+1647697108924	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647697111549	Marionette	INFO	Stopped listening on port 45207
+1647697149360	geckodriver	INFO	Listening on 127.0.0.1:44347
+1647697149362	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "35179" "-no-remote" "-profile" "/tmp/rust_mozprofileaHWkWy"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1647697149879	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileaHWkWy/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:35179/devtools/browser/240611d3-a5bf-4c57-9fc7-6e44198f85ec
+1647697150805	Marionette	INFO	Listening on port 34909
+1647697150874	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647697151760	Marionette	INFO	Stopped listening on port 34909
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1647697152981	geckodriver	INFO	Listening on 127.0.0.1:47183
+1647697152983	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "33061" "-no-remote" "-profile" "/tmp/rust_mozprofileul8aco"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1647697153520	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileul8aco/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33061/devtools/browser/857a34b9-4169-4e0b-8859-06ef2287e52a
+1647697154459	Marionette	INFO	Listening on port 33831
+1647697154494	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1647697156828	Marionette	INFO	Stopped listening on port 33831
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
