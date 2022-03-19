@@ -36,7 +36,9 @@ def getReviews(companyName):
 
 
     url="https://www.indeed.com/cmp/Halff-Associates,-Inc./reviews"
-    driver = webdriver.Safari()
+    #driver = webdriver.Safari()
+    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
     driver.get(url)
         #rnd=randrange(1,2)
         #sleep(rnd)
