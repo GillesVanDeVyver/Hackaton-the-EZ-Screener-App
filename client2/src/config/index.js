@@ -1,5 +1,5 @@
 let data = {}
-if(process.env.NODE_PC === 'production') {
+if(process.env.NODE_ENV === 'production') {
   data = {
     backend: {
       url: 'http://stylify.duckdns.org:3050',
