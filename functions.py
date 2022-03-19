@@ -14,13 +14,18 @@ from selenium.webdriver.firefox.extension_connection import LOGGER
 from sentiment_analysis import getScore
 import sys
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.options import Options
 LOGGER.setLevel(0)
+
 def getReviews(companyName):
     #url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
     #driver = webdriver.Safari()
 
+    firefox_options = Options()
+    firefox_options.add_argument("--headless")
+
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
-    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(),options=firefox_options)
     driver.get(url)
         #rnd=randrange(1,2)
         #sleep(rnd)
