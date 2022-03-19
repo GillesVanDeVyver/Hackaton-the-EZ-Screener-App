@@ -7,10 +7,12 @@ import pandas as pd
 import urllib
 from sentiment_analysis import getScore
 import sys
+from webdriver_manager.firefox import GeckoDriverManager
 
 def getReviews(companyName):
     url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
-    driver = webdriver.Safari()
+    #driver = webdriver.Safari()
+    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     driver.get(url)
         #rnd=randrange(1,2)
         #sleep(rnd)
