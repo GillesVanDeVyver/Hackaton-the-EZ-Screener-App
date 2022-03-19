@@ -28,8 +28,8 @@ def getReviews(companyName):
     if pc_env == 'stylify':
         print("running headless")
         firefox_options.add_argument("--headless")
-    firefox_options.add_argument("--disable-logging")
-    firefox_options.add_argument("--log-level=3")
+    # firefox_options.add_argument("--disable-logging")
+    # firefox_options.add_argument("--log-level=3")
     print("start loading indeed search")
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
@@ -120,7 +120,6 @@ if __name__ == "__main__":
     score,scores_list = getScore(review_list)
     hist_data = get_histogram(scores_list)
     print("JSON-DATA")
-    print(hist_data)
     output = {'score_list': hist_data, 'score': score}
 
     print(json.dumps(output))
