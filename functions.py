@@ -135,12 +135,12 @@ if __name__ == "__main__":
         word = sys.argv[2]
     score,scores_list,new_scores_raw = getScore(review_list,word)
     hist_data = get_histogram(scores_list)
-    print("JSON-DATA")
+
     print(hist_data)
     result_pos,result_neg = get_top_reviews(review_list,new_scores_raw)
     print(result_pos)
     print(result_neg)
     output = {'score_list': hist_data, 'score': score, 'result_pos' : result_pos, 'result_neg' : result_neg}
-
+    print("JSON-DATA")
     print(json.dumps(output))
     # print("{ score: {}}".format(score))
