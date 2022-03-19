@@ -40,6 +40,7 @@ def getScore(review_array):
 
 
 if __name__ == "__main__":
+    pass
    #result = main(sys.argv)
    #print(result)
    # sys.stdout.write(str(result))

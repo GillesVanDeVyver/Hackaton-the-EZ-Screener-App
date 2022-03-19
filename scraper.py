@@ -4,9 +4,14 @@ import json
 from time import sleep
 from random import randrange
 import pandas as pd
+from selenium import webdriver
+from webdriver_manager.firefox import GeckoDriverManager
+
 
 url="https://www.google.com/search?q=halff%20indeed"
-driver = webdriver.Safari()
+#driver = webdriver.Safari()
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
 driver.get(url)
     #rnd=randrange(1,2)
     #sleep(rnd)
@@ -31,10 +36,12 @@ print(list_of_links)
  #   if './reviews' in elem:
   #      print('yes')
 
-  """To get list of reviews"""
+"""To get list of reviews"""
 
 url="https://www.indeed.com/cmp/Halff-Associates,-Inc./reviews"
-driver = webdriver.Safari()
+#driver = webdriver.Safari()
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
 driver.get(url)
     #rnd=randrange(1,2)
     #sleep(rnd)

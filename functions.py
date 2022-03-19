@@ -4,9 +4,9 @@ import json
 from time import sleep
 from random import randrange
 import pandas as pd
-import urlllib.parse
-
-import getScore from sentiment_analysis
+import urllib
+from sentiment_analysis import getScore
+import sys
 
 def getReviews(companyName):
     url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
@@ -63,6 +63,4 @@ def getReviews(companyName):
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[0])
     score = getScore(review_list)
-    print("{
-        score: {}
-    }".format(score))
+    print("{ score: {}}".format(score))
