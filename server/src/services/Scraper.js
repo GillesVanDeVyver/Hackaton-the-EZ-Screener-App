@@ -18,7 +18,8 @@ module.exports = {
         python.on('close', (code) => {
           console.log(`Python closed with exit code ${code}`)
           // send data to browser
-          resolve(response)
+
+          resolve(response.match(/JSON-DATA\\n(.*?)\\n/g))
         });
       } else {
         resolve({
