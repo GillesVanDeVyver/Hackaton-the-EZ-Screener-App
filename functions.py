@@ -7,6 +7,7 @@ from time import sleep
 from random import randrange
 import pandas as pd
 import urllib
+import os
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.extension_connection import LOGGER
@@ -24,7 +25,9 @@ def getReviews(companyName):
     # driver = webdriver.Safari()
 
     firefox_options = Options()
-    # firefox_options.add_argument("--headless")
+    pc_env = os.getenv('NODE_PC')
+    if pc_env == 'stylify':
+        firefox_options.add_argument("--headless")
 
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
