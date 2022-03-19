@@ -7,6 +7,7 @@ from time import sleep
 from random import randrange
 import pandas as pd
 import urllib
+import os
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.extension_connection import LOGGER
@@ -16,15 +17,18 @@ import sys
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options
 
-LOGGER.setLevel(0)
-
 
 def getReviews(companyName):
     # url="https://www.google.com/search?q={}%20indeed".format(urllib.parse.quote(companyName))
     # driver = webdriver.Safari()
 
     firefox_options = Options()
-    #firefox_options.add_argument("--headless")
+    pc_env = os.getenv('NODE_PC')
+    if pc_env == 'stylify':
+        print("running headless")
+        firefox_options.add_argument("--headless")
+    firefox_options.add_argument("--disable-logging")
+    firefox_options.add_argument("--log-level=3")
 
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
