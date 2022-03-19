@@ -67,4 +67,5 @@ def getReviews(companyName):
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[0])
     score = getScore(review_list)
-    print("{ score: {}}".format(score))
+    print(score)
+    #print("{ score: {}}".format(score))

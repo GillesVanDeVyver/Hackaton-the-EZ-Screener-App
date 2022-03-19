@@ -8,8 +8,6 @@ from happytransformer import HappyTextClassification
 happy_tc = HappyTextClassification(model_type="DISTILBERT", model_name="distilbert-base-uncased-finetuned-sst-2-english", num_labels=2)
 
 def main(argv):
-    #print("argv")
-    #print(argv)
     return get_doc_score(argv[1])
 
 
@@ -35,7 +33,7 @@ def getScore(review_array):
             documentScore+=line_score.score
         else:
             documentScore-=line_score.score
-    documentScore = (documentScore/len(lines)+1)*5
+    documentScore = (documentScore/len(review_array)+1)*5
     return round(documentScore)
 
 
