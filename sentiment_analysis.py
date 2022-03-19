@@ -35,7 +35,7 @@ def getScore(review_array):
         totaldocumentScore+=line_score_val
         #scores.append(((line_score_val+1)*5))
         scores.append(line_score_val)
-    print(scores)
+    #print(scores)
     #normalization of list
     pos_scores = []
     neg_scores = []
@@ -58,17 +58,18 @@ def getScore(review_array):
             new_score = sign*(score-avg_pos)/st_dev_pos
         else:
             new_score = sign*(score-avg_neg)/st_dev_neg
-        new_score = round((new_score+1)*5)
+        new_score = ((new_score+1)*5)
         if new_score > 10:
             new_score = 10
         elif new_score < -10:
             new_score = -10
+        new_score = round((new_score+10)/2)
         new_scores.append(new_score)
 
 
 
 
-    avgdocumentScore = (totaldocumentScore/len(review_array)+1)*5
+    avgdocumentScore = sum(new_scores)/len(new_scores)
     return round(avgdocumentScore),new_scores
 
 

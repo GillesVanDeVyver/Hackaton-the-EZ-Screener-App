@@ -32,7 +32,7 @@ def getReviews(companyName):
         if "https" in str(elem):
             elem.split(':h')
             list_of_links.append('h'+elem[1])
-    print(list_of_links)
+    #print(list_of_links)
 
 
     url="https://www.indeed.com/cmp/Halff-Associates,-Inc./reviews"
@@ -63,10 +63,20 @@ def getReviews(companyName):
 
     return res
 
+def get_histogram(list):
+    result = []
+    for i in range(10): #horrible inneficient way of counting the elements
+        count = 0
+        for elem in list:
+            if elem == i:
+                count+=1
+        result.append(count)
+
+    return result
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[0])
     score,scores_list = getScore(review_list)
-    print(score)
-    print(scores_list)
+    hist_data = get_histogram(scores_list)
+    print(hist_data)
     #print("{ score: {}}".format(score))
