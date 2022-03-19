@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 
 module.exports = (app) => {
-  app.get('/', (req, res) => {
+  app.get('/test', (req, res) => {
     res.send('hello there')
   })
 
