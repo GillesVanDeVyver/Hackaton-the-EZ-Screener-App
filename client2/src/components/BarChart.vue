@@ -1,10 +1,10 @@
 <script>
-import { Line, mixins } from 'vue-chartjs'
+import { Bar, mixins } from 'vue-chartjs'
 const {reactiveProp} = mixins
 
 
 export default {
-  extends: Line,
+  extends: Bar,
   mixins: [reactiveProp],
   props: {
     labels: {
@@ -25,17 +25,22 @@ export default {
     this.renderChart(
         {
           labels: this.labels,
+
           datasets: [
             {
-              label: 'Data 1',
+              label: 'Rreviews',
               data: this.chartData,
-              //backgroundColor: 'transparent',
+              color:'rgba(100,100,100, 1)',
+              fillColor: '#ffffff',
+              strokeColor: 'rgba(220,220,220,0.8)',
+              highlightFill: 'rgba(220,220,220,0.75)',
+              highlightStroke: 'rgba(220,220,220,1)',
+              // backgroundColor: 'transparent',
               //borderColor: 'rgba(1, 116, 188, 0.50)',
-              //pointBackgroundColor: 'rgba(171, 71, 188, 1)'
+               //pointBackgroundColor: 'rgba(0, 71, 188, 1)',
             }
           ]
         },
-
         {
           responsive: true,
           maintainAspectRatio: false,
@@ -64,4 +69,5 @@ export default {
     )
   }
 }
+
 </script>

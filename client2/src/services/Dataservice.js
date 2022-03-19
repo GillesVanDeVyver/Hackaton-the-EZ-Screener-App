@@ -2,7 +2,7 @@ import axios from '../plugins/axios'
 
 export default {
   async getTestMessage() {
-    return axios.get('/')
+    return 'ok'
   },
   async getCompanyData(companyName) {
     return axios.get('/company-data', {

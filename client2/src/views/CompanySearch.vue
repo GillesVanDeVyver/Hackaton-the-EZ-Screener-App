@@ -2,13 +2,18 @@
   <v-container >
     <h1>Information for <b>{{getCompany}}</b></h1>
     <h3>{{companyData?(companyData.message?companyData.message:'No messages'):'Data Loading'}}</h3>
-    <v-card v-if="companyData && companyData.rating"
+    <v-progress-circular
+        v-if="loader"
+        indeterminate
+        color="primary"
+    ></v-progress-circular>
+    <v-card v-if="companyData && companyData.score"
             class="mx-auto my-12"
             max-width="450"
             color="#385F73"
             dark>
       <v-card-title>
-        Rating {{companyData.rating}}/10
+        Rating {{companyData.score}}/10
       </v-card-title>
       <v-card-text>
         <!--<v-rating
@@ -60,16 +65,66 @@
       </v-card-text>
 
     </v-card>
+
+    <v-card v-if="companyData && companyData.result_neg"
+            class="mx-auto my-12"
+            max-width="450"
+            color="#385F73"
+            dark>
+      <v-card-title>
+        Most negative reviews
+      </v-card-title>
+      <v-card-text>
+        <v-list>
+          <v-list-item :key="rev.id" v-for="rev of companyData.result_neg">
+            {{rev.rev}}
+          </v-list-item>
+        </v-list>
+      </v-card-text>
+    </v-card>
+
+    <v-card v-if="companyData && companyData.result_pos"
+            class="mx-auto my-12"
+            max-width="450"
+            color="#385F73"
+            dark>
+      <v-card-title>
+        Most Positive reviews
+      </v-card-title>
+      <v-card-text>
+        <v-list>
+          <v-list-item :key="rev.id" v-for="rev of companyData.result_pos">
+            {{rev.rev}}
+          </v-list-item>
+        </v-list>
+      </v-card-text>
+    </v-card>
+
+    <v-card v-if="companyData && companyData.score_list"
+            class="mx-auto my-12"
+            max-width="450"
+            color="#385F73"
+            dark>
+      <v-card-title>
+        Score Distribution
+      </v-card-title>
+      <v-card-text>
+        <BarChart title="Score Distribution" data-type="" :chartData=companyData.score_list :labels="[1,2,3,4,5,6,7,8,9,10]"></BarChart>
+      </v-card-text>
+    </v-card>
   </v-container>
 </template>
 
 <script>
 import Dataservice from '../services/Dataservice'
 import ProfitChart from '../components/ProfitChart'
+import BarChart from '../components/BarChart'
+
 export default {
   name: 'Home',
   components: {
-    ProfitChart
+    ProfitChart,
+    BarChart
   },
   data: () => ({
     companyName: '',
@@ -80,7 +135,9 @@ export default {
     async startCompanySearch(companyName) {
       this.loader = true
       this.companyData = false
-      this.companyData = (await Dataservice.getCompanyData(companyName)).data
+      this.companyData = JSON.parse((await Dataservice.getCompanyData(companyName)).data)
+      this.companyData.result_neg = this.companyData.result_neg.map((rev,i) => ({rev:rev,id:i}))
+      this.companyData.result_pos = this.companyData.result_pos.map((rev,i) => ({rev:rev,id:i}))
       console.log('companyData')
       console.log(this.companyData)
       this.loader = false
@@ -101,7 +158,7 @@ export default {
       return this.$route.params.company
     },
     scaledRating() {
-      return this.companyData.rating * 10
+      return this.companyData.score * 10
     }
   },
   watch: {

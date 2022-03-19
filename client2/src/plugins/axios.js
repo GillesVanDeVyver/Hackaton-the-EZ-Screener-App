@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const ax = axios.create({
   baseURL: config.backend.url, // axios sends request to express Rest endpoint in the server
-  withCredentials: true,
+  withCredentials: false,
   headers: {
     'Access-Control-Allow-Origin': config.frontend.url,
   },

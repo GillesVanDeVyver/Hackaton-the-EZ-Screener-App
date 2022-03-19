@@ -36,7 +36,7 @@ app.use(CookieParser())
 
 
 // allows connection from any origin + cookies
-app.use(cors({ credentials: false, origin: config.frontend.url }))
+app.use(cors({ credentials: true, origin: config.frontend.url }))
 // app.use(cors())
 
 
@@ -46,5 +46,6 @@ routes(app)
 console.log('mode', process.env.NODE_ENV || 'develop')
 app.listen(config.backend.port, () => {
   console.log('now listening on port ' + config.backend.port)
+  console.log(`frontend url ${config.frontend.url}`)
 })
 
