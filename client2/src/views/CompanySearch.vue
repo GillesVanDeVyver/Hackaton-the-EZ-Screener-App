@@ -69,7 +69,7 @@
     <v-card v-if="companyData && companyData.result_neg"
             class="mx-auto my-12"
             max-width="450"
-            color="#385F73"
+            color="red"
             dark>
       <v-card-title>
         Most negative reviews
@@ -86,7 +86,7 @@
     <v-card v-if="companyData && companyData.result_pos"
             class="mx-auto my-12"
             max-width="450"
-            color="#385F73"
+            color="green"
             dark>
       <v-card-title>
         Most Positive reviews
@@ -103,7 +103,7 @@
     <v-card v-if="companyData && companyData.score_list"
             class="mx-auto my-12"
             max-width="450"
-            color="#385F73"
+            color="#cccccc"
             dark>
       <v-card-title>
         Score Distribution
