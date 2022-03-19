@@ -1,7 +1,7 @@
 <template>
   <v-container >
     <h1>Information for <b>{{getCompany}}</b></h1>
-    <h3>{{companyData?(companyData.message?companyData.message:'No messages'):'Data Loading'}}</h3>
+    <h3>{{companyData?(companyData.message?companyData.message:'Source Indeed.com'):'Data Loading'}}</h3>
     <v-progress-circular
         v-if="loader"
         indeterminate
