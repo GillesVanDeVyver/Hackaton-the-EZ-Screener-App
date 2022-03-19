@@ -24,7 +24,7 @@ def getReviews(companyName):
     # driver = webdriver.Safari()
 
     firefox_options = Options()
-    firefox_options.add_argument("--headless")
+    # firefox_options.add_argument("--headless")
 
     url = "https://www.indeed.com/companies/search?q={}&l=".format(companyName.replace(" ", "+"))
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
@@ -66,11 +66,11 @@ def getReviews(companyName):
     for elem in soup.find_all("span", attrs={'class': 'css-82l4gy eu4oa1w0'}):
         with open('review.txt', 'a+') as fp:
             fp.write(str(elem))
+    res = None
+    with open('review.txt', 'a+') as fp:
+        line=fp.read()
+        res = re.findall('<.*/>(.*?)</.*?>', line)
 
-    # with open('review.txt', 'a+') as fp:
-    #     line=fp.read()
-    #     res = re.findall('<.*/>(.*?)</.*?>', line)
-    # res = None
     with open('review.txt', 'a+') as fp:
         line = fp.read()
         res = re.findall('<.*?>([^(?!<br.*?/>)].*?)</.*?>', line)
@@ -93,6 +93,7 @@ def get_histogram(list):
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
+
     score, scores_list = getScore(review_list)
     hist_data = get_histogram(scores_list)
     print(hist_data)
