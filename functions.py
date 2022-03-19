@@ -103,13 +103,19 @@ def get_histogram(list):
 
     return result
 
+def get_top_reviews(review_list,scores_list):
+    result_pos = []
+    result_neg=[]
+
+    max_score = max(scores_list)
+    
+
 
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
     word = None
     if len(sys.argv)>2:
         word = sys.argv[2]
-
     score,scores_list = getScore(review_list,word)
     score,scores_list = getScore(review_list)
     hist_data = get_histogram(scores_list)
