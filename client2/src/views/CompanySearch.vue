@@ -136,8 +136,9 @@ export default {
       this.loader = true
       this.companyData = false
       this.companyData = JSON.parse((await Dataservice.getCompanyData(companyName)).data)
-      this.companyData.result_neg = this.companyData.result_neg.map((rev,i) => ({rev:rev,id:i}))
-      this.companyData.result_pos = this.companyData.result_pos.map((rev,i) => ({rev:rev,id:i}))
+      let temp = this.companyData.result_neg
+      this.companyData.result_neg = this.companyData.result_pos.map((rev,i) => ({rev:rev,id:i}))
+      this.companyData.result_pos = temp.map((rev,i) => ({rev:rev,id:i}))
       console.log('companyData')
       console.log(this.companyData)
       this.loader = false
