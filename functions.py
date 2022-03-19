@@ -117,6 +117,7 @@ def get_top_reviews(review_list,scores_list):
         result_pos.append(review_list[index])
     for i in range(3):
         index = scores_list.index(scores_sorted[i])
+        scores_sorted.pop(i)
         result_neg.append(review_list[index])
     return result_pos,result_neg
 
@@ -140,7 +141,7 @@ def translate(review_list):
 if __name__ == "__main__":
     review_list = getReviews(sys.argv[1])
     review_list = preprocess(review_list)
-    review_list = translate(review_list)
+    #review_list = translate(review_list)
     print(review_list)
 
     word = None
