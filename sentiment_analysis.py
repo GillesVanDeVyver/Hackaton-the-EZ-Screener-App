@@ -8,7 +8,6 @@ import numpy
 def main(argv):
     return get_doc_score(argv[1])
 
-
 def get_doc_score(doc_path):
     with open(doc_path) as f:
         lines = f.readlines()
@@ -21,7 +20,6 @@ def get_doc_score(doc_path):
             documentScore-=line_score.score
     documentScore = (documentScore/len(lines)+1)*5
     return round(documentScore)
-
 
 def getScore(review_array,word=None):
     totaldocumentScore = 0
@@ -79,11 +77,8 @@ def getScore(review_array,word=None):
         new_scores.append(new_score)
         new_scores_raw.append(new_score_raw)
 
-
-
     avgdocumentScore = sum(new_scores)/len(new_scores)
     return round(avgdocumentScore),new_scores,new_scores_raw
-
 
 if __name__ == "__main__":
     pass
